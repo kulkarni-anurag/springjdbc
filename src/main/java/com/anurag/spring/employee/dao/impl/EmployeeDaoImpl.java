@@ -6,10 +6,14 @@ import com.anurag.spring.employee.dao.EmployeeDao;
 import com.anurag.spring.employee.dao.rowmapper.EmployeeRowMapper;
 import com.anurag.spring.employee.dto.Employee;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
+@Component("employeeDao")
 public class EmployeeDaoImpl implements EmployeeDao {
 
+    @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Override
