@@ -1,6 +1,9 @@
 package com.anurag.spring.employee.dao.impl;
 
+import java.util.List;
+
 import com.anurag.spring.employee.dao.EmployeeDao;
+import com.anurag.spring.employee.dao.rowmapper.EmployeeRowMapper;
 import com.anurag.spring.employee.dto.Employee;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -38,6 +41,22 @@ public class EmployeeDaoImpl implements EmployeeDao {
         String sql = "DELETE FROM employee WHERE id=?";
         int result = jdbcTemplate.update(sql, id);
 
+        return result;
+    }
+
+    @Override
+    public Employee readRecord(int id) {
+        String sql = "SELECT * FROM employee WHERE id = ?";
+        EmployeeRowMapper rowmapper = new EmployeeRowMapper();
+        Employee employee = jdbcTemplate.queryForObject(sql, rowmapper, id);
+        return employee;
+    }
+
+    @Override
+    public List<Employee> read() {
+        String sql = "SELECT * FROM employee";
+        EmployeeRowMapper rowmapper = new EmployeeRowMapper();
+        List<Employee> result = jdbcTemplate.query(sql, rowmapper);
         return result;
     }
     

@@ -1,5 +1,7 @@
 package com.anurag.spring.employee.test;
 
+import java.util.List;
+
 import com.anurag.spring.employee.dao.EmployeeDao;
 import com.anurag.spring.employee.dto.Employee;
 
@@ -28,9 +30,17 @@ public class Test {
 
         System.out.println("Number of records updated: "+result2);*/
 
-        int result3 = dao.deleteRecord(3);
+        //int result3 = dao.deleteRecord(3);
 
-        System.out.println("Number of Records deleted: "+result3);
+        //System.out.println("Number of Records deleted: "+result3);
+
+        //Employee emp = dao.readRecord(2);
+
+        //System.out.println(emp);
+
+        List<Employee> result = dao.read();
+
+        System.out.println(result);
 
         ctx.close();
     }
