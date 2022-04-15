@@ -24,5 +24,13 @@ public class EmployeeDaoImpl implements EmployeeDao {
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
+
+    @Override
+    public int updateRecord(Employee employee) {
+        String sql = "UPDATE employee SET firstname = ?, lastname = ? WHERE id = ?";
+        int result = jdbcTemplate.update(sql, employee.getFirstname(), employee.getLastname(), employee.getId());
+        
+        return result;
+    }
     
 }
