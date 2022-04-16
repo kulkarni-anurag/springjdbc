@@ -1,5 +1,7 @@
 package com.anurag.spring.cricketers.test;
 
+import java.util.List;
+
 import com.anurag.spring.cricketers.Cricketers;
 import com.anurag.spring.cricketers.dao.CricketersDao;
 
@@ -12,8 +14,8 @@ public class Test {
         CricketersDao dao = (CricketersDao)ctx.getBean("cricketersDao");
 
         Cricketers cricketer = new Cricketers();
-        cricketer.setFirstname("Virat");
-        cricketer.setLastname("Kohli");
+        cricketer.setFirstname("Rishab");
+        cricketer.setLastname("Pant");
 
         int result1 = dao.create(cricketer);
 
@@ -32,9 +34,13 @@ public class Test {
 
         //System.out.println("Number of records deleted: "+result3);
 
-        Cricketers result4 = dao.read(3);
+        //Cricketers result4 = dao.read(3);
 
-        System.out.println(result4);
+        //System.out.println(result4);
+
+        List<Cricketers> result5 = dao.read();
+
+        System.out.println(result5);
 
         ctx.close();
     }

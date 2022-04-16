@@ -1,5 +1,7 @@
 package com.anurag.spring.cricketers.dao.impl;
 
+import java.util.List;
+
 import com.anurag.spring.cricketers.Cricketers;
 import com.anurag.spring.cricketers.dao.CricketersDao;
 import com.anurag.spring.cricketers.rowmapper.CricketersRowMapper;
@@ -45,6 +47,14 @@ public class CricketersDaoImpl implements CricketersDao {
         CricketersRowMapper rowMapper = new CricketersRowMapper();
         Cricketers cricketer = jdbcTemplate.queryForObject(sql, rowMapper, id);
         return cricketer;
+    }
+
+    @Override
+    public List<Cricketers> read() {
+        String sql = "SELECT * FROM cricketers";
+        CricketersRowMapper rowMapper = new CricketersRowMapper();
+        List<Cricketers> result = jdbcTemplate.query(sql, rowMapper);
+        return result;
     }
     
 }
