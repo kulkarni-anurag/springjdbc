@@ -1,5 +1,7 @@
 package com.anurag.spring.passenger.dao.impl;
 
+import java.util.List;
+
 import com.anurag.spring.passenger.Passenger;
 import com.anurag.spring.passenger.dao.PassengerDao;
 import com.anurag.spring.passenger.rowmapper.PassengerRowMapper;
@@ -45,6 +47,14 @@ public class PassengerDaoImpl implements PassengerDao {
         PassengerRowMapper rowMapper = new PassengerRowMapper();
         Passenger passenger = jdbcTemplate.queryForObject(sql, rowMapper, id);
         return passenger;
+    }
+
+    @Override
+    public List<Passenger> read() {
+        String sql = "SELECT * FROM passengers";
+        PassengerRowMapper rowMapper = new PassengerRowMapper();
+        List<Passenger> result = jdbcTemplate.query(sql, rowMapper);
+        return result;
     }
     
 }

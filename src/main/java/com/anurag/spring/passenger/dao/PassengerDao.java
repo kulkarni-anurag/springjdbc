@@ -1,5 +1,7 @@
 package com.anurag.spring.passenger.dao;
 
+import java.util.List;
+
 import com.anurag.spring.passenger.Passenger;
 
 public interface PassengerDao {
@@ -7,4 +9,5 @@ public interface PassengerDao {
     int update(Passenger passenger);
     int delete(int id);
     Passenger read(int id);
+    List<Passenger> read();
 }

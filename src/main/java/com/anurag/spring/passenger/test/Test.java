@@ -1,5 +1,7 @@
 package com.anurag.spring.passenger.test;
 
+import java.util.List;
+
 import com.anurag.spring.passenger.Passenger;
 import com.anurag.spring.passenger.dao.PassengerDao;
 
@@ -32,9 +34,13 @@ public class Test {
 
         //System.out.println("Number of records deleted: "+result3);
 
-        Passenger result4 = dao.read(2);
+        //Passenger result4 = dao.read(2);
 
-        System.out.println(result4);
+        //System.out.println(result4);
+
+        List<Passenger> result5 = dao.read();
+
+        System.out.println(result5);
 
         ctx.close();
     }
