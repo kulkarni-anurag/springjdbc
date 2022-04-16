@@ -2,6 +2,7 @@ package com.anurag.spring.passenger.dao.impl;
 
 import com.anurag.spring.passenger.Passenger;
 import com.anurag.spring.passenger.dao.PassengerDao;
+import com.anurag.spring.passenger.rowmapper.PassengerRowMapper;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -36,6 +37,14 @@ public class PassengerDaoImpl implements PassengerDao {
         String sql = "DELETE FROM passengers WHERE id = ?";
         int result = jdbcTemplate.update(sql, id);
         return result;
+    }
+
+    @Override
+    public Passenger read(int id) {
+        String sql = "SELECT * FROM passengers WHERE id = ?";
+        PassengerRowMapper rowMapper = new PassengerRowMapper();
+        Passenger passenger = jdbcTemplate.queryForObject(sql, rowMapper, id);
+        return passenger;
     }
     
 }
