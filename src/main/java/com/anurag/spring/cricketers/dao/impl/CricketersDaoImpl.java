@@ -2,6 +2,7 @@ package com.anurag.spring.cricketers.dao.impl;
 
 import com.anurag.spring.cricketers.Cricketers;
 import com.anurag.spring.cricketers.dao.CricketersDao;
+import com.anurag.spring.cricketers.rowmapper.CricketersRowMapper;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -36,6 +37,14 @@ public class CricketersDaoImpl implements CricketersDao {
         String sql = "DELETE FROM cricketers WHERE id = ?";
         int result = jdbcTemplate.update(sql, id);
         return result;
+    }
+
+    @Override
+    public Cricketers read(int id) {
+        String sql = "SELECT * FROM cricketers WHERE id = ?";
+        CricketersRowMapper rowMapper = new CricketersRowMapper();
+        Cricketers cricketer = jdbcTemplate.queryForObject(sql, rowMapper, id);
+        return cricketer;
     }
     
 }

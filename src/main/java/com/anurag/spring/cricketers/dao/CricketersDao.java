@@ -6,4 +6,5 @@ public interface CricketersDao {
     int create(Cricketers cricketer);
     int update(Cricketers cricketer);
     int delete(int id);
+    Cricketers read(int id);
 }
