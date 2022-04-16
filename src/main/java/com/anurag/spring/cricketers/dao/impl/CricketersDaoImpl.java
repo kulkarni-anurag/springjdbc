@@ -1,0 +1,27 @@
+package com.anurag.spring.cricketers.dao.impl;
+
+import com.anurag.spring.cricketers.Cricketers;
+import com.anurag.spring.cricketers.dao.CricketersDao;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
+public class CricketersDaoImpl implements CricketersDao {
+
+    private JdbcTemplate jdbcTemplate;
+
+    public JdbcTemplate getJdbcTemplate() {
+        return jdbcTemplate;
+    }
+
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    @Override
+    public int create(Cricketers cricketer) {
+        String sql = "INSERT INTO cricketers(firstname, lastname) values (?, ?)";
+        int result = jdbcTemplate.update(sql, cricketer.getFirstname(), cricketer.getLastname());
+        return result;
+    }
+    
+}
