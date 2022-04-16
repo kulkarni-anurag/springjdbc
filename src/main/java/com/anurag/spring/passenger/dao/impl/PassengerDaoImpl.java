@@ -30,5 +30,12 @@ public class PassengerDaoImpl implements PassengerDao {
         int result = jdbcTemplate.update(sql, passenger.getFirstName(), passenger.getLastName(), passenger.getId());
         return result;
     }
+
+    @Override
+    public int delete(int id) {
+        String sql = "DELETE FROM passengers WHERE id = ?";
+        int result = jdbcTemplate.update(sql, id);
+        return result;
+    }
     
 }

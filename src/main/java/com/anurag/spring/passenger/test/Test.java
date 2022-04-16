@@ -24,9 +24,13 @@ public class Test {
         passenger2.setFirstName("Virat");
         passenger2.setLastName("Kohli");
 
-        int result2 = dao.update(passenger2);
+        //int result2 = dao.update(passenger2);
 
-        System.out.println("Number of records updated: "+result2);
+        //System.out.println("Number of records updated: "+result2);
+
+        int result3 = dao.delete(1);
+
+        System.out.println("Number of records deleted: "+result3);
 
         ctx.close();
     }
