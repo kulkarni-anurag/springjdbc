@@ -12,12 +12,21 @@ public class Test {
         CricketersDao dao = (CricketersDao)ctx.getBean("cricketersDao");
 
         Cricketers cricketer = new Cricketers();
-        cricketer.setFirstname("Virat");
-        cricketer.setLastname("Kohli");
+        cricketer.setFirstname("Rohit");
+        cricketer.setLastname("Sharma");
 
         int result1 = dao.create(cricketer);
 
         System.out.println("Number of records inserted: "+result1);
+
+        Cricketers cricketer2 = new Cricketers();
+        cricketer2.setId(1);
+        cricketer2.setFirstname("MS");
+        cricketer2.setLastname("Dhoni");
+
+        int result2 = dao.update(cricketer2);
+
+        System.out.println("Number of records updated: "+result2);
 
         ctx.close();
     }

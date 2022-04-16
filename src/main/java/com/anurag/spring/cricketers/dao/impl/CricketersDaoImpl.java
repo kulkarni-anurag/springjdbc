@@ -23,5 +23,12 @@ public class CricketersDaoImpl implements CricketersDao {
         int result = jdbcTemplate.update(sql, cricketer.getFirstname(), cricketer.getLastname());
         return result;
     }
+
+    @Override
+    public int update(Cricketers cricketer) {
+        String sql = "UPDATE cricketers SET firstname = ?, lastname = ? WHERE id = ?";
+        int result = jdbcTemplate.update(sql, cricketer.getFirstname(), cricketer.getLastname(), cricketer.getId());
+        return result;
+    }
     
 }
