@@ -12,8 +12,8 @@ public class Test {
         CricketersDao dao = (CricketersDao)ctx.getBean("cricketersDao");
 
         Cricketers cricketer = new Cricketers();
-        cricketer.setFirstname("Rohit");
-        cricketer.setLastname("Sharma");
+        cricketer.setFirstname("Ravindra");
+        cricketer.setLastname("Jadeja");
 
         int result1 = dao.create(cricketer);
 
@@ -24,9 +24,13 @@ public class Test {
         cricketer2.setFirstname("MS");
         cricketer2.setLastname("Dhoni");
 
-        int result2 = dao.update(cricketer2);
+        //int result2 = dao.update(cricketer2);
 
-        System.out.println("Number of records updated: "+result2);
+        //System.out.println("Number of records updated: "+result2);
+
+        int result3 = dao.delete(2);
+
+        System.out.println("Number of records deleted: "+result3);
 
         ctx.close();
     }
