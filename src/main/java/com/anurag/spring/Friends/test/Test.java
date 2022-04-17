@@ -28,9 +28,13 @@ public class Test {
 
         //System.out.println("Number of records updated: "+result2);
 
-        int result3 = dao.delete(4);
+        //int result3 = dao.delete(4);
 
-        System.out.println("Number of records deleted: "+result3);
+        //System.out.println("Number of records deleted: "+result3);
+
+        Friends result4 = dao.read(1);
+
+        System.out.println(result4);
 
         ctx.close();
     }

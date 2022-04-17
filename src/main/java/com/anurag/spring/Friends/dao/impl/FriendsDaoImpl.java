@@ -2,6 +2,7 @@ package com.anurag.spring.Friends.dao.impl;
 
 import com.anurag.spring.Friends.Friends;
 import com.anurag.spring.Friends.dao.FriendsDao;
+import com.anurag.spring.Friends.rowmapper.FriendsRowMapper;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -35,5 +36,13 @@ public class FriendsDaoImpl implements FriendsDao {
         String sql = "DELETE FROM friends WHERE id = ?";
         int result = jdbcTemplate.update(sql, id);
         return result;
+    }
+
+    @Override
+    public Friends read(int id) {
+        String sql = "SELECT * FROM friends WHERE id = ?";
+        FriendsRowMapper rowMapper = new FriendsRowMapper();
+        Friends friend = jdbcTemplate.queryForObject(sql, rowMapper, id);
+        return friend;
     }
 }
