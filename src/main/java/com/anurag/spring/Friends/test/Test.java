@@ -15,18 +15,22 @@ public class Test {
         friend.setFirstname("Suraj");
         friend.setLastname("Puri");
 
-        int result1 = dao.create(friend);
+        //int result1 = dao.create(friend);
 
-        System.out.println("Number of records inserted: "+result1);
+        //System.out.println("Number of records inserted: "+result1);
 
         Friends friend2 = new Friends();
         friend2.setId(1);
         friend2.setFirstname("Anil");
         friend2.setLastname("Kakad");
 
-        int result2 = dao.update(friend2);
+        //int result2 = dao.update(friend2);
 
-        System.out.println("Number of records updated: "+result2);
+        //System.out.println("Number of records updated: "+result2);
+
+        int result3 = dao.delete(4);
+
+        System.out.println("Number of records deleted: "+result3);
 
         ctx.close();
     }

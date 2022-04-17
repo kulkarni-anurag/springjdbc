@@ -29,4 +29,11 @@ public class FriendsDaoImpl implements FriendsDao {
         int result = jdbcTemplate.update(sql, friend.getFirstname(), friend.getLastname(), friend.getId());
         return result;
     }
+
+    @Override
+    public int delete(int id) {
+        String sql = "DELETE FROM friends WHERE id = ?";
+        int result = jdbcTemplate.update(sql, id);
+        return result;
+    }
 }
