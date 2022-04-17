@@ -1,5 +1,7 @@
 package com.anurag.spring.Friends.test;
 
+import java.util.List;
+
 import com.anurag.spring.Friends.Friends;
 import com.anurag.spring.Friends.dao.FriendsDao;
 
@@ -32,9 +34,13 @@ public class Test {
 
         //System.out.println("Number of records deleted: "+result3);
 
-        Friends result4 = dao.read(1);
+        //Friends result4 = dao.read(1);
 
-        System.out.println(result4);
+        //System.out.println(result4);
+
+        List<Friends> result5 = dao.read();
+
+        System.out.println(result5);
 
         ctx.close();
     }
